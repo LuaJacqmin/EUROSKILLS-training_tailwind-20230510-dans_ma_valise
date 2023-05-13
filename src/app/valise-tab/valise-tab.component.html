@@ -1,0 +1,10 @@
+<div [id]="valiseName" class="valise-{{valiseName}} tab-content" [ngClass]="{'active': activeTabName === valiseName}">
+    <ul class="list" id="{{valiseName}}-list">
+        <ng-container *ngIf="valiseContent">
+            <li class="list-item todo columns" *ngFor="let item of valiseContent; index as id" [ngClass]="{'is-active' : item.isInValise}" (click)="checkItem(id, item.place)">
+                <div class="column is-three-quarters">{{item.name}}</div>
+                <div class="column"><button class="button" (click)="deleteItem(id, item.place)">x</button></div>
+            </li>  
+        </ng-container>                    
+    </ul>
+</div>
